@@ -1,14 +1,20 @@
 
 public class CarroCorrida {
+									
+	public CarroCorrida(Integer numeroIdentificacao, Double velocidadeMaxima) {
+		this.numeroIdentificacao = numeroIdentificacao;
+		this.velocidadeMaxima = velocidadeMaxima;
+	}
 	
-	//Estado
-	Integer numeroIdentificacao;
-	Double velocidadeAtual;
-	Double velocidadeMaxima; 
+	//Estado - Atributos - variáveis
+	private Integer numeroIdentificacao;
+	private Double velocidadeAtual;
+	private Double velocidadeMaxima; 
+	private Piloto piloto;
 	
-	//Comportamento
+	//Comportamento - Métodos
 	
-	void ligar() {
+	void ligar() { //operadores - nome() { ...}
 		System.out.println("VRUUUmmmmmmmmm...CARRO LIGADO!");
 	}
 	
@@ -27,17 +33,43 @@ public class CarroCorrida {
 	}
 	
 	void frear (Integer intensidadeFreada) {
+
 		if(intensidadeFreada > 100) {
 			intensidadeFreada = 100;
 		}else if(intensidadeFreada < 0) {
 			intensidadeFreada = 0;
 		}
 		
-		velocidadeAtual = intensidadeFreada * 0.25;
+		velocidadeAtual -= intensidadeFreada * 0.25;
 		
 		if(velocidadeAtual < 0) {
 			velocidadeAtual = 0.0;
 		}
 	}
 
+	public Integer getNumeroIdentificacao() {
+		return numeroIdentificacao;
+	}
+	
+	//ModificadorDeAcesso TipoRetornado nome() {
+	//return valor;
+	//} 
+	
+	public void setNumeroIdentificacao(Integer numeroIdentificacao) {
+		this.numeroIdentificacao = numeroIdentificacao;
+		
+	}
+	
+	public Piloto getPiloto() {
+		return piloto;
+	}
+	
+	public void setPiloto (Piloto piloto) {
+		this.piloto = piloto;
+	}
+	
+	public Double getVelocidadeAtual() {
+		return velocidadeAtual;
+	}
+	
 }
