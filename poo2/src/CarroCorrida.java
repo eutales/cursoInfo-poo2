@@ -6,16 +6,23 @@ public class CarroCorrida {
 		this.velocidadeMaxima = velocidadeMaxima;
 	}
 	
+	public CarroCorrida(Double velocidadeMaxima) {
+		this.velocidadeMaxima = velocidadeMaxima;
+	}
+		
+	
 	//Estado - Atributos - variáveis
 	private Integer numeroIdentificacao;
 	private Double velocidadeAtual;
 	private Double velocidadeMaxima; 
 	private Piloto piloto;
+	private Motor motor;
 	
 	//Comportamento - Métodos
 	
 	void ligar() { //operadores - nome() { ...}
 		System.out.println("VRUUUmmmmmmmmm...CARRO LIGADO!");
+		
 	}
 	
 	void desligar() {
@@ -25,6 +32,7 @@ public class CarroCorrida {
 	void acelerar() {
 		
 		velocidadeAtual += 10;
+		velocidadeAtual = velocidadeAtual + motor.getPotencia() * 0.10;
 		
 		if(velocidadeAtual > velocidadeMaxima) {
 			velocidadeAtual = velocidadeMaxima;
